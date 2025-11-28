@@ -12,8 +12,7 @@ dbms.memory.heap.max_size=512m\n\
 dbms.connector.bolt.enabled=true\n\
 dbms.connector.bolt.listen_address=0.0.0.0:7687\n\
 dbms.connector.http.enabled=true\n\
-dbms.connector.http.listen_address=0.0.0.0:7474\n\
-server.metrics.enabled=false' > $NEO4J_HOME/conf/neo4j.conf
+dbms.connector.http.listen_address=0.0.0.0:7474' > $NEO4J_HOME/conf/neo4j.conf
 
 # Expose ports
 EXPOSE 7474 7687
