@@ -13,7 +13,6 @@ dbms.connector.bolt.enabled=true\n\
 dbms.connector.bolt.listen_address=0.0.0.0:7687\n\
 dbms.connector.http.enabled=true\n\
 dbms.connector.http.listen_address=0.0.0.0:7474\n\
-dbms.active_database=system\n\
 server.metrics.enabled=false' > $NEO4J_HOME/conf/neo4j.conf
 
 # Expose ports
