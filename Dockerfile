@@ -1,14 +1,10 @@
-FROM neo4j:5.24-enterprise
+FROM neo4j:5.24-community  # Community edition — lighter, no license BS
 
-# Accept license (required for Enterprise on Railway)
-ENV NEO4J_ACCEPT_LICENSE_AGREEMENT=yes
+# Runtime ENV for auth (Railway vars override this)
+ENV NEO4J_AUTH=neo4j/${NEO4J_PASSWORD:-neo4j}
 
-# These are the ONLY variables Neo4j actually reads at runtime
-# Railway will auto-generate a strong random password for NEO4J_AUTH on first deploy
-ENV NEO4J_AUTH=neo4j/${NEO4J_PASSWORD}
-
-# Optional: enable Bolt + HTTP
-ENV NEO4J_dbms_connector_bolt_advertised__address=0.0.0.0:7687
-ENV NEO4J_dbms_connector_http_advertised__address=0.0.0.0:7474
-
+# Expose ports
 EXPOSE 7474 7687
+
+# Explicit start command (no aliases, no help spam)
+CMD ["neo4j", "start"]
